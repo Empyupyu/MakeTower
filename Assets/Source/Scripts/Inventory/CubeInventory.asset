@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6b0ab439e94e93a74fb4aff49260ac, type: 3}
+  m_Name: CubeInventory
+  m_EditorClassIdentifier: 
+  <InventoryCapacity>k__BackingField: 20
+  <CubeColors>k__BackingField:
+  - {fileID: 1390252632, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 1530036484, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: -1543999709, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: -1136044436, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 992042264, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: -253587816, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 1922539289, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 74838192, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 298297460, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 701669313, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: -1532816189, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 1167149081, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 13920710, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 1273837220, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: -250755795, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 1493700098, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: -1099763520, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 403246938, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: 1712243559, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
+  - {fileID: -809723394, guid: dc9f31d91e6646d41ad8b52180f5e99d, type: 3}
