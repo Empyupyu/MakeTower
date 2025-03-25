@@ -31,27 +31,25 @@ namespace Source.Scripts.Inventory
         private readonly CubeInventory _inventory;
         private readonly InventorySettings _inventorySettings;
         private readonly IInput _input;
-        private readonly CubeHolder _cubeHolder;
+        private readonly CubeMover _cubeMover;
         private List<Cube> _cubes;
         private float _delayForGetCube = .1f;
         private readonly RayCaster _rayCaster;
         private Cube _cubeInRayCast;
 
         public InventoryController(CubeInventory inventory, InventoryView inventoryView,
-            InventorySettings inventorySettings, IInput input, CubeHolder cubeHolder, RayCaster rayCaster)
+            InventorySettings inventorySettings, IInput input, CubeMover cubeMover, RayCaster rayCaster)
         {
             _inventory = inventory;
             _inventoryView = inventoryView;
             _inventorySettings = inventorySettings;
             _input = input;
-            _cubeHolder = cubeHolder;
+            _cubeMover = cubeMover;
             _cubes = new List<Cube>();
             _rayCaster = rayCaster;
 
             _input.Delta += TryGetCube;
-            _input.ClickDown += CheckCube;
-            // _input.Delta().Subscribe(TryGetCube);
-            // Observable.
+            _rayCaster.OnClickDownRaycast += CheckCube;
         }
 
         public void CreateInventory()
@@ -68,30 +66,39 @@ namespace Source.Scripts.Inventory
 
                 item.Visual.sprite = (_inventorySettings.CubeColors[colorIndex]);
                 _cubes.Add(item);
-
-                // var cube = GameObject.Instantiate(_inventoryView.CubePrefab);
-                // cube.Visual.sprite = item.CubeColor;
-                // _cubeHolder.SetSelectedCube(cube);
             }
         }
+        
+        private void CheckCube(Collider2D collider)
+        {
+            if (collider == null) return;
+            
+            collider.TryGetComponent(out _cubeInRayCast);
 
+            if (_cubeInRayCast == null) return;
+            
+            _delayForGetCube = .1f;
+        }
+
+        //TODO
         private void TryGetCube(Vector2 delta)
         {
-            if (_cubeHolder.SelectedCube != null) return;
+            if (_cubeMover.SelectedCube != null) return;
 
             if (delta != Vector2.zero)
             {
                 var direction = delta.normalized;
-
-                _delayForGetCube -= Time.deltaTime;
+                _delayForGetCube -= Time.deltaTime; //TODO
 
                 if (_delayForGetCube > 0)
                 {
                     if (direction.y >= .5f)
                     {
-                        if (_cubeInRayCast != null)
+                        if (_cubeInRayCast != null && _cubeInRayCast.InWorld == false)
                         {
-                            _cubeHolder.SetSelectedCube(GameObject.Instantiate(_cubeInRayCast));
+                            var cube = GameObject.Instantiate(_cubeInRayCast);
+                            cube.InWorld = true;
+                            _cubeMover.SetSelectedCube(cube);
 
                             return;
                         }
@@ -102,29 +109,19 @@ namespace Source.Scripts.Inventory
 
                 _cubeInRayCast = null;
 
-                direction *= _inventoryView.ScrollSpeed * Time.deltaTime;
-                direction.y = 0;
-
-                direction.x = Mathf.Clamp(_inventoryView.ItemContainer.transform.localPosition.x + direction.x, -_cubes.Count * _inventoryView.Spacing,
-                    -11f);
-                _inventoryView.ItemContainer.transform.localPosition = direction;
+                Scrolling(direction);
             }
         }
-        
-        private void CheckCube(Vector2 _clickPosition)
+
+        private void Scrolling(Vector2 direction)
         {
-            var ray = Camera.main.ScreenPointToRay(_clickPosition);
-            var hit = Physics2D.Raycast(ray.origin, ray.direction);
+            direction *= _inventoryView.ScrollSpeed * Time.deltaTime;
+            direction.y = 0;
 
-            if (hit.collider != null)
-            {
-                hit.collider.TryGetComponent(out _cubeInRayCast);
-
-                if (_cubeInRayCast != null)
-                {
-                    _delayForGetCube = .1f;
-                }
-            }
+            //TODO
+            direction.x = Mathf.Clamp(_inventoryView.ItemContainer.transform.localPosition.x + direction.x, -_cubes.Count * _inventoryView.Spacing,
+                -11f);
+            _inventoryView.ItemContainer.transform.localPosition = direction;
         }
     }
 }
