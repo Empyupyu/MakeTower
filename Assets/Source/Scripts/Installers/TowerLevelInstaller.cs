@@ -38,7 +38,6 @@ namespace Source.Scripts.Installers
             Container.Bind<CameraShaker>().AsSingle().NonLazy();
             Container.Bind<CubeAnimationService>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryController>().AsSingle().NonLazy();
-
             Container.BindInterfacesAndSelfTo<RayCaster>().AsSingle();
             Container.Bind<InventoryView>().FromInstance(_inventoryView);
         }
