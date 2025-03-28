@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utils
+namespace Source.Scripts.Utils
 {
     public class PositionSetterByScreenSize : MonoBehaviour
     {

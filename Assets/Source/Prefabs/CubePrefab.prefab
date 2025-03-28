@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5911919358649170811}
   - component: {fileID: -506767000722444227}
   - component: {fileID: 3500965778777319095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CubePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Visual>k__BackingField: {fileID: 1405199566083633251}
+  <InWorld>k__BackingField: 0
+  <ColorID>k__BackingField: 0
 --- !u!61 &3500965778777319095
 BoxCollider2D:
   m_ObjectHideFlags: 0

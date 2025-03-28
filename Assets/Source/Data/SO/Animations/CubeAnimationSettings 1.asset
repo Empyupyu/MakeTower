@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f259017fb54782b55e32e3b2da6d86, type: 3}
+  m_Name: CubeAnimationSettings 1
+  m_EditorClassIdentifier: 
+  <CubePrefab>k__BackingField: {fileID: -506767000722444227, guid: e7450433c4321974f8b197dfda4d3430, type: 3}
+  <ExplosionAnimationSettings>k__BackingField: {fileID: 11400000, guid: 036ec8786cdeaca42ae809ae1fb1cdbf, type: 2}
+  <AddToTowerAnimationSettings>k__BackingField: {fileID: 11400000, guid: 77f71e90a16a2fa45b294f3a4e171eb0, type: 2}
+  <RemoveFromTowerAnimationSettings>k__BackingField: {fileID: 11400000, guid: cccff02adafd55246a25cd3e71243107, type: 2}
+  <DropToHoleAnimationSettings>k__BackingField: {fileID: 11400000, guid: b5b5e495f93cc124284a2b79fb9bdf50, type: 2}

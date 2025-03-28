@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Utils
+namespace Source.Scripts.Utils
 {
     public class PositionSetterBetweenLeftScreenCornerAndSpriteRendererBound : MonoBehaviour
     {

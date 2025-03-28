@@ -1,12 +1,12 @@
-using Source.Scripts.Interface;
+using Source.Scripts.DragAndDrop;
 using UnityEngine;
 
 namespace Source.Scripts.Inventory
 {
-    public class Cube : MonoBehaviour, IDrop
+    public class Cube : MonoBehaviour, IDragAndDrop
     {
         [field: SerializeField] public SpriteRenderer Visual { get; private set; }
-        [field: SerializeField] public bool InWorld { get;  set; }
+        [field: SerializeField] public int ColorID { get;  set; }
         
         public GameObject GetGameObject()
         {
